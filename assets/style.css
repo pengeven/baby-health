@@ -1,0 +1,248 @@
+/* === 共享样式 - 新生儿健康宣教 === */
+:root {
+  --bg: #fff9f5;
+  --bg2: #fef0e8;
+  --bg3: #f0f7ff;
+  --ink: #2d2d2d;
+  --muted: #7a7a7a;
+  --rule: #f0e0d6;
+  --accent: #ff8a6b;
+  --accent2: #5eaaef;
+  --accent3: #8bd4a4;
+  --pink: #ffb8c6;
+  --yellow: #ffd97a;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* === 顶部导航 === */
+.top-bar {
+  background: linear-gradient(135deg, var(--accent), #ff6b8a);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(255,138,107,0.3);
+}
+.top-bar .back-link {
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+.top-bar .back-link:hover { opacity: 1; }
+.top-bar .nav-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* === 页面头部 === */
+.page-hero {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+.page-hero .part-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 99px;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.1em;
+}
+.page-hero h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.page-hero .hero-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* === Hero 图片 === */
+.hero-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === 内容区域 === */
+.content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.2rem 3rem;
+}
+
+/* === 章节卡片 === */
+.section-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  border: 1px solid var(--rule);
+}
+.section-card h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-card h2 .emoji {
+  font-size: 1.2rem;
+}
+.section-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 1rem 0 0.5rem;
+}
+.section-card p {
+  font-size: 0.92rem;
+  color: #444;
+  margin-bottom: 0.6rem;
+}
+
+/* === 列表样式 === */
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+.info-list li {
+  font-size: 0.9rem;
+  color: #444;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+  line-height: 1.7;
+}
+.info-list li strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* === 重点提示 === */
+.tip-box {
+  background: #fff5e6;
+  border: 1px solid #ffd97a;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  color: #8a6d3b;
+  line-height: 1.7;
+}
+.tip-box::before {
+  content: "💡";
+  margin-right: 0.3rem;
+}
+
+/* === 警告框 === */
+.warn-box {
+  background: #fff0f0;
+  border: 1px solid #ffb8c6;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  color: #c0392b;
+  line-height: 1.7;
+}
+.warn-box::before {
+  content: "⚠️";
+  margin-right: 0.3rem;
+}
+
+/* === 就医指征 === */
+.alert-box {
+  background: #ffe8e8;
+  border: 2px solid #ff6b6b;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1rem 0;
+}
+.alert-box .alert-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e74c3c;
+  margin-bottom: 0.6rem;
+}
+
+/* === 误区卡片 === */
+.myth-card {
+  background: linear-gradient(135deg, #f8f0ff 0%, #f0f0ff 100%);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0;
+}
+.myth-card .myth-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 0.3rem;
+}
+.myth-card .myth-answer {
+  font-size: 0.85rem;
+  color: #059669;
+  font-weight: 600;
+}
+
+/* === 页脚 === */
+.page-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+.page-footer a {
+  color: var(--accent2);
+  text-decoration: none;
+}
+
+/* === 响应式 === */
+@media (max-width: 600px) {
+  .page-hero h1 { font-size: 1.3rem; }
+  .section-card { padding: 1.2rem; }
+  .content { padding: 0 1rem 2rem; }
+}
