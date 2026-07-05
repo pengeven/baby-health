@@ -7,10 +7,11 @@
   <title>意见与建议 - 新生儿健康宣教</title>
   <link rel="stylesheet" href="../assets/style.css">
   <style>
+    body { background: #fff9f5; }
     .feedback-hero {
       text-align: center;
       padding: 2.5rem 1rem 1.5rem;
-      background: linear-gradient(180deg, #f0f7ff 0%, var(--bg) 100%);
+      background: linear-gradient(180deg, #f0f7ff 0%, #fff9f5 100%);
     }
     .feedback-hero .hero-icon {
       font-size: 3rem;
@@ -19,12 +20,12 @@
     .feedback-hero h1 {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--ink);
+      color: #2d2d2d;
       margin-bottom: 0.3rem;
     }
     .feedback-hero .sub {
       font-size: 0.9rem;
-      color: var(--muted);
+      color: #7a7a7a;
     }
 
     .feedback-area {
@@ -33,81 +34,70 @@
       padding: 0 1.2rem 3rem;
     }
 
-    .notice-card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      border: 1px solid var(--rule);
-      text-align: center;
-    }
-    .notice-card .notice-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .notice-card h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-    }
-    .notice-card p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* 问卷嵌入区域 */
     .survey-wrap {
       background: white;
-      border-radius: var(--radius);
-      padding: 1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      border: 1px solid var(--rule);
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      border: 1px solid #f0e0d6;
     }
     .survey-wrap iframe {
       width: 100%;
       border: none;
       display: block;
+      min-height: 600px;
     }
 
-    /* 备用按钮 */
-    .fallback-btn {
-      display: block;
-      width: 100%;
-      padding: 1rem;
+    .fallback-section {
+      text-align: center;
+      padding: 2rem 1rem;
+      display: none;
+    }
+    .fallback-section .fallback-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .fallback-section .fallback-title {
       font-size: 1rem;
+      font-weight: 600;
+      color: #2d2d2d;
+      margin-bottom: 0.4rem;
+    }
+    .fallback-section .fallback-desc {
+      font-size: 0.85rem;
+      color: #7a7a7a;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .fallback-link {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      font-size: 0.95rem;
       font-weight: 600;
       font-family: inherit;
       color: white;
-      background: linear-gradient(135deg, var(--accent2), #4a90d9);
+      background: #ff8a6b;
       border: none;
-      border-radius: 12px;
-      cursor: pointer;
+      border-radius: 10px;
       text-decoration: none;
+    }
+    .fallback-link:hover { opacity: 0.9; }
+
+    .tip-note {
       text-align: center;
       margin-top: 1rem;
+      font-size: 0.82rem;
+      color: #7a7a7a;
+      line-height: 1.6;
     }
-    .fallback-btn:hover { opacity: 0.9; }
 
-    .config-hint {
-      background: #fff5e6;
-      border: 1px solid #ffd97a;
-      border-radius: 12px;
-      padding: 1rem 1.2rem;
-      margin: 1rem 0;
-      font-size: 0.85rem;
-      color: #8a6d3b;
-      line-height: 1.7;
-    }
-    .config-hint code {
-      background: #fff;
-      padding: 0.1rem 0.4rem;
-      border-radius: 4px;
+    .page-footer {
+      text-align: center;
+      padding: 2rem 1rem;
       font-size: 0.8rem;
-      color: #e67e22;
+      color: #7a7a7a;
+      border-top: 1px solid #f0e0d6;
+      margin-top: 1rem;
     }
   </style>
 </head>
@@ -126,32 +116,20 @@
 
   <div class="feedback-area">
 
-    <div class="notice-card">
-      <div class="notice-icon">💬</div>
-      <h2>欢迎提出宝贵意见</h2>
-      <p>无论是内容纠错、改进建议，还是表扬鼓励，<br>我们都非常欢迎！您的反馈仅管理员可见。</p>
-    </div>
-
-    <!-- 腾讯问卷嵌入（部署前需替换链接） -->
+    <!-- 问卷嵌入 -->
     <div class="survey-wrap" id="surveyWrap">
-      <iframe id="surveyFrame" src="about:blank" height="600" allowfullscreen></iframe>
+      <iframe id="surveyFrame" src="about:blank" height="700" allowfullscreen></iframe>
     </div>
 
-    <!-- 如果 iframe 加载失败，显示备用按钮 -->
-    <a class="fallback-btn" id="fallbackBtn" href="#" target="_blank" style="display:none;">
-      点击打开问卷填写反馈
-    </a>
-
-    <!-- 配置提示（首次部署时显示，配置完成后可删除） -->
-    <div class="config-hint" id="configHint">
-      <strong>⚠️ 部署前配置提示</strong><br>
-      当前使用的是占位链接。请按以下步骤配置：<br>
-      1. 打开 <a href="https://wj.qq.com" target="_blank" style="color:#e67e22;">腾讯问卷</a> 创建一个新问卷<br>
-      2. 问卷内容建议：反馈类型（单选）、姓名（填空）、联系方式（填空）、反馈内容（多行文本）<br>
-      3. 发布问卷后复制链接<br>
-      4. 打开本文件（pages/feedback.html），把第 102 行的 <code>surveyLink</code> 替换为您的问卷链接<br>
-      5. 重新部署即可
+    <!-- 如果 iframe 无法加载，显示备用跳转 -->
+    <div class="fallback-section" id="fallbackSection">
+      <div class="fallback-icon">📝</div>
+      <div class="fallback-title">请在问卷页面填写反馈</div>
+      <div class="fallback-desc">点击下方按钮前往问卷页面填写</div>
+      <a class="fallback-link" id="fallbackLink" href="#" target="_blank">前往问卷填写</a>
     </div>
+
+    <div class="tip-note">您的反馈仅管理员可见，请放心填写</div>
 
   </div>
 
@@ -160,31 +138,55 @@
   </div>
 
   <script>
-    // ===== 配置：替换为您的腾讯问卷链接 =====
-    // 获取方式：https://wj.qq.com 创建问卷 → 发布 → 复制链接
     const surveyLink = 'https://wj.qq.com/s2/27228627/cabe/';
-    // ======================================
-
-    const isPlaceholder = surveyLink.includes('PLACEHOLDER');
     const frame = document.getElementById('surveyFrame');
-    const fallback = document.getElementById('fallbackBtn');
-    const hint = document.getElementById('configHint');
+    const wrap = document.getElementById('surveyWrap');
+    const fallback = document.getElementById('fallbackSection');
+    const fallbackLink = document.getElementById('fallbackLink');
 
-    if (!isPlaceholder) {
-      // 已配置真实链接
-      frame.src = surveyLink;
-      hint.style.display = 'none';
+    // 尝试用 iframe 加载
+    frame.src = surveyLink;
 
-      // iframe 加载失败时显示备用按钮
-      frame.onerror = function() {
-        frame.style.display = 'none';
-        fallback.style.display = 'block';
-        fallback.href = surveyLink;
-      };
-    } else {
-      // 尚未配置，显示提示
-      frame.style.display = 'none';
-      fallback.style.display = 'none';
+    // 检测 iframe 是否加载成功
+    frame.onload = function() {
+      try {
+        // 如果能访问 contentDocument 且不为空，说明加载成功
+        var doc = frame.contentDocument || frame.contentWindow.document;
+        if (doc && doc.body && doc.body.innerHTML.length > 0) {
+          wrap.style.display = 'block';
+          fallback.style.display = 'none';
+        } else {
+          showFallback();
+        }
+      } catch(e) {
+        // 跨域无法访问，可能是加载成功了也可能是被拦截
+        // 对于腾讯问卷，通常是被拦截，显示备用方案
+        // 但我们还是先假设加载成功，让用户看到 iframe
+        wrap.style.display = 'block';
+        fallback.style.display = 'none';
+      }
+    };
+
+    frame.onerror = function() {
+      showFallback();
+    };
+
+    // 如果 iframe 加载超时（5秒），也显示备用
+    setTimeout(function() {
+      try {
+        var doc = frame.contentDocument || frame.contentWindow.document;
+        if (!doc || !doc.body || doc.body.innerHTML.length <= 50) {
+          showFallback();
+        }
+      } catch(e) {
+        // 跨域，保持 iframe 显示
+      }
+    }, 5000);
+
+    function showFallback() {
+      wrap.style.display = 'none';
+      fallback.style.display = 'block';
+      fallbackLink.href = surveyLink;
     }
   </script>
 
